@@ -1,0 +1,123 @@
+.margin20 {
+    margin: 20px;
+}
+.margin-l20 {
+    margin-left: 20px;
+}
+.margin-r20 {
+    margin-right: 20px;
+}
+.margin-t20 {
+    margin-top: 20px;
+}
+.margin-b20 {
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+}
+#app {
+    color: #666;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    font-size: 14px;
+    margin-top: 60px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*
+动画效果
+*/
+.slide-fade-enter-active {
+    transition: all 1s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all 0ms cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active for below version 2.1.8 */ {
+    transform: translateZ(10px);
+    opacity: 0;
+  }
+/*
+布局头部 header
+*/
+.top {
+    height: 60px;
+    position: fixed;
+    left: 200px;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+}
+.top .btn-toggle {
+    cursor: pointer;
+    float: left;
+    font-size: 26px;
+    padding: 0 10px 0 5px;
+}
+.top .title {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 60px;
+}
+/*
+布局左边栏 sidebar
+*/
+.sidebar {
+    width: 200px;
+    background: rgb(73, 80, 96);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+.el-menu {
+    border-right: none;
+    width: 100%;
+}
+.el-menu-item {
+    padding-left: 10px!important;
+    padding-right: 0;
+    text-align: left;
+}
+/*
+右边内容布局
+*/
+.main-content {
+    background: #f5f5f5;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 200px;
+    right: 0;
+    overflow: auto;
+}
+.container {
+    margin: 20px 20px 100px;
+}
+.tags-list .el-tag a {
+    color: #666;
+    text-decoration: none;
+}
+.tags-list .is-active .el-icon-close{
+    color: #fff;
+}
+.is-active .el-icon-close:hover {
+    background: #fff;
+    color: #409eff;
+}
+
+.el-dropdown-menu {
+    padding: 5px 0;
+}
+.el-dropdown-menu__item {
+    font-size: 12px;
+    line-height: 28px;
+}
+.el-dropdown-menu__item--divided {
+    margin-top: 0;
+}
+.el-dropdown-menu__item--divided:before {
+    height: 0;
+}
