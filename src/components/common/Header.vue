@@ -1,38 +1,33 @@
-<template>
-  <div class="top">
-    <header class="header">
-      <div
-        :class="{'btn-toggle': true, 'active': isActived}"
-        @click="taggleMenu">
-        <i class="icon-toggle"></i>
-      </div>
-      <h2 class="title">淘璞后台管理系统UI</h2>
-      <div class="header-user">
-        <div class="rank">
-          <el-tooltip class="item" effect="dark" content="全屏" placement="bottom">
-            <i class="el-icon-rank"></i>
-          </el-tooltip>
-        </div>
-        <div class="message">
-          <el-tooltip class="item" effect="dark" content="有3条未处理" placement="bottom">
-            <el-badge is-dot class="item"><i class="el-icon-message"></i></el-badge>
-          </el-tooltip>
-        </div>
-        <el-dropdown trigger="click">
-          <span class="el-dropdown-link">
-            admin<i class="el-icon-caret-bottom el-icon--right"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>个人中心</el-dropdown-item>
-            <el-dropdown-item divided>退出登陆</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <div class="user">
-          <img src="../../assets/images/user.jpeg" alt="">
-        </div>
-      </div>
-    </header>
-  </div>
+<template lang="pug">
+  div.top
+    header.header
+      div(
+        :class="{'btn-toggle': true, 'active': isActived}",
+        @click="taggleMenu")
+        i.icon-toggle
+      h2.title 淘璞后台管理系统UI
+      div.header-user
+        div.rank
+          el-tooltip.item(
+            effect="dark",
+            content="全屏",
+            placement="bottom")
+            i.el-icon-rank
+        div.message
+          el-tooltip.item(
+            effect="dark",
+            content="有3条未处理",
+            placement="bottom")
+            el-badge.item(is-dot)
+              i.el-icon-message
+        el-dropdown(trigger="click")
+          span.el-dropdown-link admin
+            i.el-icon-caret-bottom.el-icon--right
+          el-dropdown-menu(slot="dropdown")
+            el-dropdown-item 个人中心
+            el-dropdown-item(divided) 退出登陆
+        div.user
+          img(src="../../assets/images/user.jpeg")
 </template>
 <script>
 import bus from '../common/bus.js'

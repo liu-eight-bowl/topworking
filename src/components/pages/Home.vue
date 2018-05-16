@@ -1,18 +1,13 @@
-<template>
-  <div class="main">
-    <v-header></v-header>
-    <v-sidebar></v-sidebar>
-    <main class="main-content">
-      <v-beadtags></v-beadtags>
-      <div class="container">
-        <transition name="slide-fade">
-          <keep-alive>
-            <router-view/>
-          </keep-alive>
-        </transition>
-      </div>
-    </main>
-  </div>
+<template lang="pug">
+  div.main
+    v-header
+    v-sidebar
+    main.main-content
+      v-beadtags
+      div.container
+        transition(name="slide-fade")
+          keep-alive
+            router-view
 </template>
 
 <script>
