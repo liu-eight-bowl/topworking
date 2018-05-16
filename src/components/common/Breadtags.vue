@@ -1,5 +1,5 @@
 <template>
-  <div class="breadtags" v-if="isShow">
+  <div class="breadtags" v-if="isShowTags">
     <div class="tags-list">
       <el-tag
         v-for="(item, index) of tagsList"
@@ -9,16 +9,17 @@
         :type="setType(item.path)"
         @close="closeTag(index)"
         size="medium"
-        closable>
+        :closable="item.path !== '/dashboard'">
         <router-link :to="item.path" class="tags-li-title">
           {{ item.name }}
         </router-link>
       </el-tag>
     </div>
-    <div class="close-tags">
+    <div class="close-tags" v-if="isShowDashboard">
       <el-dropdown @command="handleBreadTags">
         <el-button type="primary" size="mini">
-          更多选项<i class="el-icon-arrow-down el-icon--right"></i>
+          更多选项
+          <i class="el-icon-arrow-down el-icon--right"></i>
         </el-button>
         <el-dropdown-menu slot="dropdown" size="mini">
           <el-dropdown-item command="other">关闭其他</el-dropdown-item>
@@ -33,7 +34,11 @@
 export default {
   data () {
     return {
-      tagsList: []
+      tagsList: [],
+      homePath: {
+        name: '系统首页',
+        path: '/dashboard'
+      }
     }
   },
   created () {
@@ -47,6 +52,9 @@ export default {
       return name === this.$route.path ? '' : 'info'
     },
     setBreadtags (route) {
+      if (!this.isShowTags) {
+        this.tagsList.unshift(this.homePath)
+      }
       const hasTag = this.hasTag(route)
       if (!hasTag) {
         route.path !== '/' && this.tagsList.push({
@@ -76,12 +84,15 @@ export default {
     },
     closeOther () {
       const nowTag = this.tagsList.filter(item =>
-        item.path === this.$route.path
+        item.path === this.$route.path || item.path === this.homePath.path
       )
       this.tagsList = nowTag
     },
     closeAll () {
-      this.tagsList.splice(0, this.tagsList.length)
+      this.tagsList = this.tagsList.filter(item =>
+        item.path === this.homePath.path
+      )
+      this.$router.push(this.tagsList[0].path)
     },
     handleBreadTags (command) {
       command === 'all'
@@ -90,8 +101,11 @@ export default {
     }
   },
   computed: {
-    isShow () {
+    isShowTags () {
       return this.tagsList.length > 0
+    },
+    isShowDashboard () {
+      return this.tagsList.length > 1
     }
   },
   watch: {

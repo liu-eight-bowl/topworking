@@ -54,7 +54,12 @@ img {
     cursor: pointer;
     float: left;
     font-size: 26px;
-    padding: 0 10px 0 5px;
+    transition: all .2s ease-in;
+}
+.top .active {
+    transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
 }
 .top .title {
     font-size: 18px;
@@ -71,6 +76,7 @@ img {
     top: 0;
     bottom: 0;
     overflow-y: auto;
+    transition: all .2s ease-in;
 }
 .el-menu {
     border-right: none;

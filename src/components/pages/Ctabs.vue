@@ -20,6 +20,10 @@ export default {
     return {
       activeName: 'first'
     }
+  },
+  methods: {
+    handleClick () {
+    }
   }
 }
 </script>

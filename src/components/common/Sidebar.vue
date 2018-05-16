@@ -1,7 +1,7 @@
 <template>
   <aside class="sidebar">
     <div class="logo">
-      <span>TOP</span>-Working
+      TOP<span>-Working</span>
     </div>
     <el-menu
       active-text-color="#20a0ff"
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import bus from '../common/bus.js'
 export default {
   data () {
     return {
@@ -53,25 +54,40 @@ export default {
           index: 'list',
           iconName: 'el-icon-news'
         }
-      ]
+      ],
+      isActived: false
+    }
+  },
+  created () {
+    this.getIsActived()
+  },
+  methods: {
+    getIsActived () {
+      bus.$on('isActived', item => {
+        this.isActived = item
+      })
     }
   },
   computed: {
     onActive () {
       return this.$route.path.substring(1)
     }
+  },
+  beforeDestroy () {
+    bus.$off('isActived')
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang=scss>
+$mainColor: #409eff;
 .logo {
-  background: rgb(32, 160, 255);
+  background: $mainColor;
   border-radius: 3px;
   border-bottom-left-radius: 3px;
   border-top-right-radius: 3px;
-  color: #fff;
+  color: #ff0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 22px;
   font-weight: bold;
@@ -79,7 +95,7 @@ export default {
   line-height: 40px;
   margin: 15px 20px;
   span {
-    color: #ff0;
+    color: #fff;
   }
 }
 .el-menu-item {
@@ -88,16 +104,18 @@ export default {
   color: rgb(191, 203, 217);
   font-size: 14px;
   font-weight: bold;
-  transition: all .3s ease-in;
+  transition: all .2s ease-in;
 }
 .is-active,
+.el-menu-item:focus,
 .el-menu-item:hover{
-  color: rgb(32, 160, 255);
+  color: $mainColor;
   background: rgb(50, 65, 87);
-  border-color: rgb(32, 160, 255);
+  border-color: $mainColor;
+  padding-left: 20px!important;
 }
 .el-menu-item:hover .el-icon-picture-outline {
-  color: rgb(32, 160, 255);
+  color: $mainColor;
 }
 .el-menu-item [class^=el-icon-] {
   margin-right: 0;

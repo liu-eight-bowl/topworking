@@ -1,7 +1,11 @@
 <template>
   <div class="top">
     <header class="header">
-      <div class="btn-toggle"><i class="icon-toggle"></i></div>
+      <div
+        :class="{'btn-toggle': true, 'active': isActived}"
+        @click="taggleMenu">
+        <i class="icon-toggle"></i>
+      </div>
       <h2 class="title">淘璞后台管理系统UI</h2>
       <div class="header-user">
         <div class="rank">
@@ -31,9 +35,17 @@
   </div>
 </template>
 <script>
+import bus from '../common/bus.js'
 export default {
   data () {
     return {
+      isActived: false
+    }
+  },
+  methods: {
+    taggleMenu () {
+      this.isActived = !this.isActived
+      bus.$emit('isActived', this.isActived)
     }
   }
 }
