@@ -4,10 +4,10 @@
     shadow="hover"
     :body-style="{padding: 0}")
       div.top-card
-      i(:class="['el-icon-goods', 'top-icon', className]")
-      div.icon-text
-        div.icon-number {{ number }}
-        div.icon-title {{ text }}
+        i(:class="['el-icon-goods', 'top-icon', className]")
+        div.icon-text
+          div.icon-number {{ number }}
+          div.icon-title {{ text }}
 </template>
 
 <script>
