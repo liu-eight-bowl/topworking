@@ -1,21 +1,17 @@
-<template>
-  <aside class="sidebar">
-    <div class="logo">
-      TOP<span>-Working</span>
-    </div>
-    <el-menu
-      active-text-color="#20a0ff"
-      :default-active="onActive"
-      router>
-      <el-menu-item
-        v-for="item of menuList"
-        :key="item.index"
-        :index="item.index">
-        <i :class="item.iconName"></i>
-        <span slot="title">{{ item.title }}</span>
-      </el-menu-item>
-    </el-menu>
-  </aside>
+<template lang="pug">
+  aside.sidebar
+    div.logo TOP
+      span -Working
+    el-menu(
+      active-text-color="#20a0ff",
+      :default-active="onActive",
+      router)
+      el-menu-item(
+        v-for="item of menuList",
+        :key="item.index",
+        :index="item.index")
+        i(:class="item.iconName")
+        span(slot="title") {{ item.title }}
 </template>
 
 <script>

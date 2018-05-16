@@ -2,13 +2,13 @@
   div.breadtags(v-if="isShowTags")
     div.tags-list
       el-tag(
-        v-for="(item, index) of tagsList"
-        :key="index"
-        :class="{'is-active': isActived(item.path)}"
-        :disable-transitions="false"
-        :type="setType(item.path)"
-        @close="closeTag(index)"
-        size="medium"
+        v-for="(item, index) of tagsList",
+        :key="index",
+        :class="{'is-active': isActived(item.path)}",
+        :disable-transitions="false",
+        :type="setType(item.path)",
+        @close="closeTag(index)",
+        size="medium",
         :closable="item.path !== '/dashboard'")
         router-link.tags-li-title( :to="item.path") {{ item.name }}
     div.close-tags(v-if="isShowDashboard")
