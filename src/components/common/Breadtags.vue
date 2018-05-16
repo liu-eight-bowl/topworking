@@ -1,7 +1,7 @@
-<template>
-  <div class="breadtags" v-if="isShowTags">
-    <div class="tags-list">
-      <el-tag
+<template lang="pug">
+  div.breadtags(v-if="isShowTags")
+    div.tags-list
+      el-tag(
         v-for="(item, index) of tagsList"
         :key="index"
         :class="{'is-active': isActived(item.path)}"
@@ -9,25 +9,15 @@
         :type="setType(item.path)"
         @close="closeTag(index)"
         size="medium"
-        :closable="item.path !== '/dashboard'">
-        <router-link :to="item.path" class="tags-li-title">
-          {{ item.name }}
-        </router-link>
-      </el-tag>
-    </div>
-    <div class="close-tags" v-if="isShowDashboard">
-      <el-dropdown @command="handleBreadTags">
-        <el-button type="primary" size="mini">
-          更多选项
-          <i class="el-icon-arrow-down el-icon--right"></i>
-        </el-button>
-        <el-dropdown-menu slot="dropdown" size="mini">
-          <el-dropdown-item command="other">关闭其他</el-dropdown-item>
-          <el-dropdown-item command="all">关闭所有</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
-    </div>
-  </div>
+        :closable="item.path !== '/dashboard'")
+        router-link.tags-li-title( :to="item.path") {{ item.name }}
+    div.close-tags(v-if="isShowDashboard")
+      el-dropdown(@command="handleBreadTags")
+        el-button(type="primary",size="mini") 更多选项
+          i.el-icon-arrow-down.el-icon--right
+        el-dropdown-menu(slot="dropdown" size="mini")
+          el-dropdown-item(command="other") 关闭其他
+          el-dropdown-item(command="all") 关闭所有
 </template>
 
 <script>
