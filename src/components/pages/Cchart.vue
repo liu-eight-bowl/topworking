@@ -1,7 +1,5 @@
-<template>
-  <div class="table">
-    图表
-  </div>
+<template lang="pug">
+  div.table 图表
 </template>
 
 <script>

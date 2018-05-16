@@ -1,18 +1,13 @@
-<template>
-  <div>
-    <el-card
-        class="box-card"
-        shadow="hover"
-        :body-style="{padding: 0}">
-        <div class="top-card">
-        <i :class="['el-icon-goods', 'top-icon', className]"></i>
-        <div class="icon-text">
-            <div class="icon-number">{{ number }}</div>
-            <div class="icon-title">{{ text }}</div>
-        </div>
-        </div>
-    </el-card>
-  </div>
+<template lang="pug">
+  div.box-card
+    el-card(
+    shadow="hover"
+    :body-style="{padding: 0}")
+      div.top-card
+      i(:class="['el-icon-goods', 'top-icon', className]")
+      div.icon-text
+        div.icon-number {{ number }}
+        div.icon-title {{ text }}
 </template>
 
 <script>

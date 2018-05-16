@@ -1,7 +1,6 @@
-<template>
-  <div>
-    <div id="main" :style="styles"></div>
-  </div>
+<template lang="pug">
+  div
+    div#main(:style="styles")
 </template>
 
 <script>

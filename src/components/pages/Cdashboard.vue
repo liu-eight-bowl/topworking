@@ -1,59 +1,44 @@
-<template>
-  <div class="dashboard">
-    <el-row :gutter="20" class="margin-b20">
-      <el-col
-        :span="6"
-        v-for="(item, index) in cardData"
-        :key="index">
-        <div class="grid-content bg-purple">
-          <div class="grid-content bg-purple">
-            <tcard
-              :number="item.number"
-              :text="item.text"
-              :className="item.className"
-            ></tcard>
-          </div>
-        </div>
-      </el-col>
-    </el-row>
-    <el-row :gutter="20">
-      <el-col :span="12">
-        <div class="grid-content bg-purple">
-          <el-card class="box-card" shadow="hover">
-            <div slot="header" class="clearfix">
-              <span><i class="el-icon-date"></i> 今年订单状况</span>
-            </div>
-            <tcharts
+<template lang="pug">
+  div.dashboard
+    el-row.margin-b20(:gutter="20")
+      el-col(
+        :span="6",
+        v-for="(item, index) in cardData",
+        :key="index")
+        div.grid-content.bg-purple
+          tcard(
+            :number="item.number",
+            :text="item.text",
+            :className="item.className")
+
+    el-row(:gutter="20")
+      el-col(:span="12")
+        div.grid-content.bg-purple
+          el-card.box-card(shadow="hover")
+            div.clearfix(slot="header")
+              span
+                i.el-icon-date 今年订单状况
+            tcharts(
               :styles="styles"
               :color="color"
               :xAxisData="xAxisData"
-              :series="series">
-            </tcharts>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="12">
-        <div class="grid-content bg-purple">
-          <el-card class="box-card" shadow="hover">
-            <div slot="header" class="clearfix">
-              <span><i class="el-icon-warning"></i> 待处理事项</span>
-            </div>
-            <el-table
-              ref="singleTable"
-              :data="tableData"
-              :show-header="false"
-              highlight-current-row
-              style="width: 100%">
-              <el-table-column
+              :series="series")
+
+      el-col(:span="12")
+        div.grid-content.bg-purple
+          el-card.box-card(shadow="hover")
+            div.clearfix(slot="header")
+              span
+                i.el-icon-date 待处理事项
+            el-table(
+              ref="singleTable",
+              :data="tableData",
+              :show-header="false",
+              highlight-current-row,
+              style="width: 100%")
+              el-table-column(
                 property="address"
-                label="地址">
-              </el-table-column>
-            </el-table>
-          </el-card>
-        </div>
-      </el-col>
-    </el-row>
-  </div>
+                label="地址")
 </template>
 
 <script>

@@ -1,7 +1,5 @@
-<template>
-  <div class="table">
-    信息列表
-  </div>
+<template lang="pug">
+  div.table 信息列表
 </template>
 
 <script>
