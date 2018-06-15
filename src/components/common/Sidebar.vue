@@ -10,8 +10,13 @@
         v-for="item of menuList",
         :key="item.index",
         :index="item.index")
-        el-tooltip(effect="dark" :content="item.title" placement="right-start")
+        el-tooltip(
+          v-if="isActived"
+          effect="dark" 
+          :content="item.title" 
+          placement="right-start")
           i(:class="item.iconName")
+        i(:class="item.iconName" v-else)
         span(slot="title" v-if="!isActived") {{ item.title }}
 </template>
 
