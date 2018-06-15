@@ -2,6 +2,7 @@
   aside(:class="{'sidebar': true, 'folding': isActived}")
     div.logo TOP
       span(v-if="!isActived") -Working
+
     el-menu(
       active-text-color="#20a0ff",
       :default-active="onActive",
@@ -10,12 +11,14 @@
         v-for="item of menuList",
         :key="item.index",
         :index="item.index")
+        
         el-tooltip(
           v-if="isActived"
           effect="dark" 
           :content="item.title" 
           placement="right-start")
           i(:class="item.iconName")
+
         i(:class="item.iconName" v-else)
         span(slot="title" v-if="!isActived") {{ item.title }}
 </template>
