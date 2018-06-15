@@ -2,18 +2,22 @@
   div.table
     el-card.box-card(shadow="hover")
       div.clearfix(slot="header")
+
         el-button(type="danger",size="small")
           i.el-icon-delete 批量删除
-        el-button(type="danger",size="small")
+
+        el-button(type="primary",size="small")
           i.el-icon-plus 创建活动
+
         el-button(type="primary" size="small")
           <i class="el-icon-download"></i>导出Excel
-        el-input(
+
+        el-input.margin-l10(
           :style="{width: '350px'}",
           placeholder="请输入内容",
           size="small",
           clearable)
-        el-button(type="primary" size="small") 搜索
+        el-button.margin-l10(type="primary" size="small") 搜索
 
       el-table(
         ref="multipleTable",

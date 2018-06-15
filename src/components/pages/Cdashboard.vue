@@ -76,23 +76,23 @@ export default {
       }],
       cardData: [
         {
-          number: '120',
-          text: '订单量',
+          number: '50',
+          text: '当天销售量',
           className: 'normal-bg'
         },
         {
-          number: '120',
-          text: '已处理订单',
+          number: '￥12000',
+          text: '当天销售额',
           className: 'warning-bg'
         },
         {
-          number: '120',
-          text: '待处理订单',
+          number: '1500',
+          text: '当月销售量',
           className: 'success-bg'
         },
         {
-          number: '120',
-          text: '已退货',
+          number: '￥520000',
+          text: '当月销售额',
           className: 'danger-bg'
         }
       ]
