@@ -1,7 +1,7 @@
 <template lang="pug">
-  aside.sidebar
+  aside.sidebar(:class="{folding: isActived}")
     div.logo TOP
-      span -Working
+      span(v-if="!isActived") -Working
     el-menu(
       active-text-color="#20a0ff",
       :default-active="onActive",
@@ -10,8 +10,9 @@
         v-for="item of menuList",
         :key="item.index",
         :index="item.index")
-        i(:class="item.iconName")
-        span(slot="title") {{ item.title }}
+        el-tooltip(effect="dark" :content="item.title" placement="right-start")
+          i(:class="item.iconName")
+        span(slot="title" v-if="!isActived") {{ item.title }}
 </template>
 
 <script>
@@ -88,8 +89,10 @@ $mainColor: #409eff;
   font-size: 22px;
   font-weight: bold;
   text-align: center;
+  height: 40px;
   line-height: 40px;
   margin: 15px 20px;
+  overflow: hidden;
   span {
     color: #fff;
   }
@@ -101,23 +104,50 @@ $mainColor: #409eff;
   font-size: 14px;
   font-weight: bold;
   transition: all .2s ease-in;
+  span {
+    margin-left: 5px;
+  }
+  i {
+    font-size: 20px;
+  }
 }
 .is-active,
 .el-menu-item:focus,
-.el-menu-item:hover{
+.el-menu-item:hover {
   color: $mainColor;
   background: rgb(50, 65, 87);
   border-color: $mainColor;
   padding-left: 20px!important;
 }
-.el-menu-item:hover .el-icon-picture-outline {
-  color: $mainColor;
+.el-menu-item:hover {
+   .el-icon-picture-outline {
+     color: $mainColor;
+   }
 }
 .el-menu-item [class^=el-icon-] {
   margin-right: 0;
 }
-.el-menu-item, .el-submenu__title {
+.el-menu-item,
+.el-submenu__title {
   height: 50px;
   line-height: 50px;
+}
+.folding {
+  width: 80px;
+  .logo {
+    margin: 10px;
+  }
+  .el-menu-item {
+    line-height: 60px;
+    height: 60px;
+    padding-left: 0!important;
+    text-align: center;
+    &:hover {
+      padding-left: 0!important;
+    }
+    i {
+      font-size: 24px;
+    }
+  }
 }
 </style>
