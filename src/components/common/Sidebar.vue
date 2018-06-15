@@ -11,11 +11,11 @@
         v-for="item of menuList",
         :key="item.index",
         :index="item.index")
-        
+
         el-tooltip(
           v-if="isActived"
-          effect="dark" 
-          :content="item.title" 
+          effect="dark"
+          :content="item.title"
           placement="right-start")
           i(:class="item.iconName")
 
