@@ -1,5 +1,5 @@
 <template lang="pug">
-  aside.sidebar(:class="{folding: isActived}")
+  aside(:class="{'sidebar': true, 'folding': isActived}")
     div.logo TOP
       span(v-if="!isActived") -Working
     el-menu(
@@ -146,7 +146,7 @@ $mainColor: #409eff;
       padding-left: 0!important;
     }
     i {
-      font-size: 24px;
+      font-size: 22px;
     }
   }
 }

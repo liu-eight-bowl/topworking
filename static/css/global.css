@@ -64,6 +64,7 @@ img {
     right: 0;
     top: 0;
     z-index: 1000;
+    transition: all .2s ease-in;
 }
 .top .btn-toggle {
     cursor: pointer;
@@ -113,6 +114,7 @@ img {
     left: 200px;
     right: 0;
     overflow: auto;
+    transition: all .2s ease-in;
 }
 .container {
     margin: 20px 20px 100px;

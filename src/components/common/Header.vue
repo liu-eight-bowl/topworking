@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.top
+  div(:class="{'top': true, 'folding':isActived}")
     header.header
       div(
         :class="{'btn-toggle': true, 'active': isActived}",
@@ -112,5 +112,8 @@ export default {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+}
+.folding {
+  left: 80px;
 }
 </style>
