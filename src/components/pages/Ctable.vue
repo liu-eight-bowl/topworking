@@ -3,21 +3,24 @@
     el-card.box-card(shadow="hover")
       div.clearfix(slot="header")
 
-        el-button(type="danger",size="small")
-          i.el-icon-delete 批量删除
+        el-row(:gutter="20")
+          el-col(:span="10")
+            el-input.margin-l10(
+              placeholder="请输入内容",
+              size="small",
+              clearable)
+          el-col(:span="2")
+            el-button.margin-l10(type="primary" size="small") 搜索
 
-        el-button(type="primary",size="small")
-          i.el-icon-plus 创建活动
+          el-col(:span="12" class="btn-list-box")
+            el-button(type="primary",size="small")
+              i.el-icon-plus 创建活动
 
-        el-button(type="primary" size="small")
-          <i class="el-icon-download"></i>导出Excel
-
-        el-input.margin-l10(
-          :style="{width: '350px'}",
-          placeholder="请输入内容",
-          size="small",
-          clearable)
-        el-button.margin-l10(type="primary" size="small") 搜索
+            el-button(type="primary" size="small")
+              <i class="el-icon-download"></i>导出Excel
+            
+            el-button(type="danger", size="small", @click="deleteData()")
+              i.el-icon-delete 删除
 
       el-table(
         ref="multipleTable",
@@ -47,12 +50,10 @@
 
         el-table-column(
           label="操作",
-          width="180")
+          width="100")
           template(slot-scope="scope")
             el-button(size="small", @click="editData(scope.$index, scope.row)")
               i.el-icon-edit-outline 编辑
-            el-button(size="small", type="danger", @click="deleteData(scope.$index, scope.row)")
-              i.el-icon-delete 删除
 
       div.page.margin-t20
         el-pagination(
@@ -119,8 +120,7 @@ export default {
     editData (index, row) {
       console.log(index, row)
     },
-    deleteData (index, row) {
-      console.log(index, row)
+    deleteData () {
       this.dialogVisible = true
     }
   }
@@ -135,5 +135,8 @@ export default {
 }
 .el-pagination {
   padding-left: 0;
+}
+.btn-list-box {
+  text-align: right;
 }
 </style>
