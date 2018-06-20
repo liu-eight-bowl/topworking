@@ -3,8 +3,8 @@
     el-card.box-card(shadow="hover")
       div.clearfix(slot="header")
 
-        el-row(:gutter="20")
-          el-col(:span="10")
+        el-row(:gutter="10")
+          el-col(:span="8")
             el-input.margin-l10(
               placeholder="请输入内容",
               size="small",
@@ -12,7 +12,7 @@
           el-col(:span="2")
             el-button.margin-l10(type="primary" size="small") 搜索
 
-          el-col(:span="12" class="btn-list-box")
+          el-col(:span="14" class="btn-list-box")
             el-button(type="primary",size="small")
               i.el-icon-plus 创建活动
 
@@ -27,6 +27,7 @@
         :data="tableData",
         border,
         tooltip-effect="dark",
+        stripe,
         style="width: 100%")
 
         el-table-column(
