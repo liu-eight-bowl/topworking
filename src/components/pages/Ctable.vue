@@ -17,8 +17,8 @@
               i.el-icon-plus 创建活动
 
             el-button(type="primary" size="small")
-              <i class="el-icon-download"></i>导出Excel
-            
+              i.el-icon-download 导出Excel
+
             el-button(type="danger", size="small", @click="deleteData()")
               i.el-icon-delete 删除
 
