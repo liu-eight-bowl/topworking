@@ -32,11 +32,15 @@
 img {
     max-width: 100%;
 }
+html,
+body, 
+#app {
+    height: 100%;
+}
 #app {
     color: #666;
     font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
     font-size: 14px;
-    margin-top: 60px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -117,7 +121,7 @@ img {
     transition: all .2s ease-in;
 }
 .container {
-    margin: 20px 20px 100px;
+    margin: 20px 20px 50px;
 }
 .tags-list .el-tag a {
     color: #666;

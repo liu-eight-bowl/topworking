@@ -10,14 +10,14 @@
               size="small",
               clearable)
           el-col(:span="2")
-            el-button.margin-l10(type="primary" size="small") 搜索
+            el-button.margin-l10(type="primary",size="small") 搜索
 
           el-col(:span="14" class="btn-list-box")
             el-button(type="primary",size="small")
               i.el-icon-plus 创建活动
 
             el-button(type="primary" size="small")
-              i.el-icon-download 导出Excel
+              i.el-icon-download 导出EXCEL
 
             el-button(type="danger", size="small", @click="deleteData()")
               i.el-icon-delete 删除
@@ -143,5 +143,8 @@ export default {
 }
 .btn-list-box {
   text-align: right;
+}
+.el-checkbox {
+  display: block;
 }
 </style>

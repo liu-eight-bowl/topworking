@@ -10,6 +10,11 @@ export default new Router({
       redirect: 'dashboard'
     },
     {
+      path: '/login',
+      component: () => import('@/components/pages/Login.vue'),
+      meta: { title: '登录页' }
+    },
+    {
       path: '/',
       component: () => import('@/components/pages/Home.vue'),
       meta: { title: '系统首页' },
