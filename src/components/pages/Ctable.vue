@@ -57,10 +57,14 @@
               i.el-icon-edit-outline 编辑
 
       div.page.margin-t20
-        el-pagination(
-          background,
-          layout="prev, pager, next",
-          :total="100")
+         el-pagination(
+            background,
+            :current-page="1",
+            :page-sizes="[10, 20, 50, 100]",
+            :page-size="10",
+            layout="total, sizes, prev, pager, next, jumper",
+            :total="400")
+
     el-dialog(
       title="提示",
       center,
