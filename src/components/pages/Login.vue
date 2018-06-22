@@ -51,6 +51,11 @@ export default {
   },
   methods: {
     login () {
+      let data = {
+        user: this.formLogin,
+        time: new Date().getTime()
+      }
+      localStorage.setItem('userData', JSON.stringify(data))
       this.formLogin.name &&
       this.formLogin.password &&
       this.$router.push(this.homePath.path)

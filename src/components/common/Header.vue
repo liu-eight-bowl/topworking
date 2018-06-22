@@ -20,12 +20,12 @@
             placement="bottom")
             el-badge.item(is-dot)
               i.el-icon-message
-        el-dropdown(trigger="click")
+        el-dropdown(@command="handlePersonal")
           span.el-dropdown-link admin
             i.el-icon-caret-bottom.el-icon--right
           el-dropdown-menu(slot="dropdown")
-            el-dropdown-item 个人中心
-            el-dropdown-item(divided) 退出登陆
+            el-dropdown-item(command="other") 个人中心
+            el-dropdown-item(command="logOut") 退出登陆
         div.user
           img(src="../../assets/images/user.jpeg")
 </template>
@@ -34,13 +34,24 @@ import bus from '../common/bus.js'
 export default {
   data () {
     return {
+      userName: '',
       isActived: false
     }
+  },
+  created () {
+    // this.userName = JSON.parse()
   },
   methods: {
     taggleMenu () {
       this.isActived = !this.isActived
       bus.$emit('isActived', this.isActived)
+    },
+    handlePersonal () {
+      this.logOut()
+    },
+    logOut () {
+      localStorage.clear()
+      this.$router.push('/login')
     }
   }
 }

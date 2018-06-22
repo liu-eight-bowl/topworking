@@ -1,9 +1,9 @@
 <template lang="pug">
   div.main
-    v-header
-    v-sidebar
+    Theader
+    Tsidebar
     main(:class="{'main-content':true, 'folding': isActived}")
-      v-beadtags
+      Tbreadtags
       div.container
         transition(name="slide-fade")
           keep-alive
@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import vHeader from '../common/Header.vue'
-import vSidebar from '../common/Sidebar.vue'
-import vBeadtags from '../common/Breadtags.vue'
+import Theader from '../common/Header.vue'
+import Tsidebar from '../common/Sidebar.vue'
+import Tbreadtags from '../common/Breadtags.vue'
 import bus from '../common/bus.js'
 export default {
   name: 'Home',
@@ -34,9 +34,12 @@ export default {
     }
   },
   components: {
-    vHeader,
-    vSidebar,
-    vBeadtags
+    Theader,
+    Tsidebar,
+    Tbreadtags
+  },
+  beforeDestroy () {
+    bus.$off('isActived')
   }
 }
 </script>
