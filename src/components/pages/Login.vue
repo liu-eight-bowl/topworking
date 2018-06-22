@@ -1,6 +1,6 @@
 <template lang="pug">
   div.login
-    div.login-form
+    el-card.login-form(shadow="hover")
       h2.title 后台管理系统
       el-form(
         label-width="80px",
