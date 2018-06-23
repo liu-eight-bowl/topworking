@@ -40,11 +40,6 @@ export default {
           iconName: 'el-icon-tickets'
         },
         {
-          title: '选项卡',
-          index: 'tabs',
-          iconName: 'el-icon-setting'
-        },
-        {
           title: '表单提交',
           index: 'form',
           iconName: 'el-icon-date'
@@ -53,6 +48,11 @@ export default {
           title: '图表展示',
           index: 'chart',
           iconName: 'el-icon-picture-outline'
+        },
+        {
+          title: '选项卡',
+          index: 'tabs',
+          iconName: 'el-icon-setting'
         },
         {
           title: '列表信息',

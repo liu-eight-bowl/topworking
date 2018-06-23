@@ -18,12 +18,15 @@ router.beforeEach((to, from, next) => {
   let isTimeOver = false
   if (userDataString) {
     userData = JSON.parse(userDataString)
+    // token过期时间设置，用于token认证，如果是cookie则不需要
     isTimeOver = (new Date().getTime() - userData.time) / 1000 / 1000 > 1
+    console.log(isTimeOver)
   }
+  // localstorage容错处理，如果不兼容，则正常跳转
   if (!window.localStorage) {
     next()
   }
-  if ((isTimeOver && to.path !== '/login')) {
+  if ((!userDataString && to.path !== '/login')) {
     next('/login')
   } else {
     next()
