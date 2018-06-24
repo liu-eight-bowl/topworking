@@ -2,8 +2,10 @@
   div.table
     el-card.box-card(shadow="hover")
       div.clearfix(slot="header")
-
         el-row(:gutter="10")
+          el-col(:span="4")
+            el-button(type="primary",size="small")
+              i.el-icon-plus 添加商品
           el-col(:span="8")
             el-input.margin-l10(
               placeholder="请输入内容",
@@ -12,15 +14,13 @@
           el-col(:span="2")
             el-button.margin-l10(type="primary",size="small") 搜索
 
-          el-col(:span="14" class="btn-list-box")
-            el-button(type="primary",size="small")
-              i.el-icon-plus 创建活动
+          el-col(:span="10" class="btn-list-box")
 
             el-button(type="primary" size="small")
-              i.el-icon-download 导出EXCEL
+              i.el-icon-download 上架商品
 
             el-button(type="danger", size="small", @click="deleteData()")
-              i.el-icon-delete 删除
+              i.el-icon-delete 下架商品
 
       el-table(
         ref="multipleTable",
@@ -35,23 +35,23 @@
           width="55")
 
         el-table-column(
-          label="日期",
-          width="120")
-          template(slot-scope="scope") {{ scope.row.date }}
+          label="商品名称",
+          width="200")
+          template(slot-scope="scope") {{ scope.row.name }}
 
         el-table-column(
-          prop="name",
-          label="姓名",
+          prop="price",
+          label="商品价格",
           width="120")
 
         el-table-column(
-          prop="address",
-          label="地址",
+          prop="discountPrice",
+          label="优惠价",
           show-overflow-tooltip)
 
         el-table-column(
           label="操作",
-          width="100")
+          width="90")
           template(slot-scope="scope")
             el-button(size="small", @click="editData(scope.$index, scope.row)")
               i.el-icon-edit-outline 编辑
@@ -63,7 +63,7 @@
             :page-sizes="[10, 20, 50, 100]",
             :page-size="10",
             layout="total, sizes, prev, pager, next, jumper",
-            :total="400")
+            :total="100")
 
     el-dialog(
       title="提示",
@@ -82,41 +82,54 @@ export default {
   data () {
     return {
       tableData: [{
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-08',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-06',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-07',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-06',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-07',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
+        name: '有机青菜',
+        price: '¥3.00',
+        discountPrice: '¥2.40'
+      },
+      {
+        name: '有机青菜',
+        price: '¥3.00',
+        discountPrice: '¥2.40'
+      },
+      {
+        name: '有机青菜',
+        price: '¥3.00',
+        discountPrice: '¥2.40'
+      },
+      {
+        name: '有机青菜',
+        price: '¥3.00',
+        discountPrice: '¥2.40'
+      },
+      {
+        name: '有机青菜',
+        price: '¥3.00',
+        discountPrice: '¥2.40'
+      },
+      {
+        name: '有机青菜',
+        price: '¥3.00',
+        discountPrice: '¥2.40'
+      },
+      {
+        name: '有机青菜',
+        price: '¥3.00',
+        discountPrice: '¥2.40'
+      },
+      {
+        name: '有机青菜',
+        price: '¥3.00',
+        discountPrice: '¥2.40'
+      },
+      {
+        name: '有机青菜',
+        price: '¥3.00',
+        discountPrice: '¥2.40'
+      },
+      {
+        name: '有机青菜',
+        price: '¥3.00',
+        discountPrice: '¥2.40'
       }],
       dialogVisible: false
     }
