@@ -56,6 +56,7 @@ export default {
         time: new Date().getTime()
       }
       localStorage.setItem('userData', JSON.stringify(data))
+      this.$store.dispatch('setUserValue', this.formLogin)
       this.formLogin.name &&
       this.formLogin.password &&
       this.$router.push(this.homePath.path)

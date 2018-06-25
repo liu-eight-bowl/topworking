@@ -5,7 +5,7 @@
         :class="{'btn-toggle': true, 'active': isActived}",
         @click="taggleMenu")
         i.icon-toggle
-      h2.title 淘璞后台管理系统UI
+      h2.title 淘璞后台管理系统UI  --- {{ city }}
       div.header-user
         div.rank
           el-tooltip.item(
@@ -45,13 +45,25 @@ export default {
     taggleMenu () {
       this.isActived = !this.isActived
       bus.$emit('isActived', this.isActived)
+      this.$store.dispatch('setStatusValue', this.isActived)
     },
     handlePersonal () {
       this.logOut()
     },
     logOut () {
       localStorage.clear()
+      let user = {
+        name: '',
+        password: ''
+      }
+      this.$store.dispatch('setUserValue', user)
       this.$router.push('/login')
+    }
+  },
+  computed: {
+    city () {
+      return this.$store.getters.getStatus
+      // return this.$store.state.isActived
     }
   }
 }

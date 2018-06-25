@@ -47,7 +47,7 @@ export default {
         discountPrice: null,
         inventory: null,
         descripe: '',
-        isPuublish: '1',
+        isPuublish: '',
         checkedData: [],
         previewImg: ''
       },
