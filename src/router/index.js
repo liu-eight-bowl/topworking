@@ -15,6 +15,11 @@ export default new Router({
       meta: { title: '登录页' }
     },
     {
+      path: '/404',
+      component: () => import('@/components/pages/404.vue'),
+      meta: { title: '404' }
+    },
+    {
       path: '/',
       component: () => import('@/components/pages/Home.vue'),
       meta: { title: '系统首页' },
@@ -50,6 +55,10 @@ export default new Router({
           meta: { title: '列表信息' }
         }
       ]
+    },
+    {
+      path: '*',
+      redirect: '/404'
     }
   ]
 })

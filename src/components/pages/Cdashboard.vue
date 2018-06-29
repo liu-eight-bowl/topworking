@@ -29,7 +29,7 @@
           el-card.box-card(shadow="hover")
             div.clearfix(slot="header")
               span
-                i.el-icon-date 待处理事项
+                i.el-icon-date 待处理订单
             el-table(
               ref="singleTable",
               :data="tableData",
@@ -64,15 +64,15 @@ export default {
         }
       ],
       tableData: [{
-        address: '上海市普陀区金沙江路 1518 弄'
+        address: '张三下了一个订单'
       }, {
-        address: '上海市普陀区金沙江路 1517 弄'
+        address: '张三下了一个订单'
       }, {
-        address: '上海市普陀区金沙江路 1519 弄'
+        address: '张三下了一个订单'
       }, {
-        address: '上海市普陀区金沙江路 1516 弄'
+        address: '张三下了一个订单'
       }, {
-        address: '上海市普陀区金沙江路 1515 弄'
+        address: '张三下了一个订单'
       }],
       cardData: [
         {
@@ -107,5 +107,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang=scss>
-
+.el-card__header {
+  i {
+    &:before {
+      margin-right: 5px;
+    }
+  }
+}
 </style>

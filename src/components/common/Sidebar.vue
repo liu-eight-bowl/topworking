@@ -155,6 +155,8 @@ $mainColor: #409eff;
     }
     i {
       font-size: 22px;
+      width: 100%;
+      padding: 19px 0;
     }
   }
 }

@@ -4,8 +4,9 @@
       div.clearfix(slot="header")
         el-row(:gutter="10")
           el-col(:span="4")
-            el-button(type="primary",size="small")
-              i.el-icon-plus 添加商品
+            router-link(to="/form")
+              el-button(type="primary",size="small")
+                i.el-icon-plus 添加商品
           el-col(:span="8")
             el-input.margin-l10(
               placeholder="请输入内容",
@@ -70,7 +71,7 @@
       center,
       :visible.sync="dialogVisible",
       width="340px")
-      div.delete-title 确认删除
+      div.delete-title 确认下架
       span.dialog-footer(slot="footer")
         el-button(@click="dialogVisible = false") 取 消
         el-button(type="primary" @click="dialogVisible = false") 确 定
@@ -82,53 +83,53 @@ export default {
   data () {
     return {
       tableData: [{
-        name: '有机青菜',
-        price: '¥3.00',
+        name: '乐高积木',
+        price: '¥30.00',
         discountPrice: '¥2.40'
       },
       {
-        name: '有机青菜',
-        price: '¥3.00',
+        name: '乐高积木',
+        price: '¥30.00',
         discountPrice: '¥2.40'
       },
       {
-        name: '有机青菜',
-        price: '¥3.00',
+        name: '乐高积木',
+        price: '¥30.00',
         discountPrice: '¥2.40'
       },
       {
-        name: '有机青菜',
-        price: '¥3.00',
+        name: '乐高积木',
+        price: '¥30.00',
         discountPrice: '¥2.40'
       },
       {
-        name: '有机青菜',
-        price: '¥3.00',
+        name: '乐高积木',
+        price: '¥30.00',
         discountPrice: '¥2.40'
       },
       {
-        name: '有机青菜',
-        price: '¥3.00',
+        name: '乐高积木',
+        price: '¥30.00',
         discountPrice: '¥2.40'
       },
       {
-        name: '有机青菜',
-        price: '¥3.00',
+        name: '乐高积木',
+        price: '¥30.00',
         discountPrice: '¥2.40'
       },
       {
-        name: '有机青菜',
-        price: '¥3.00',
+        name: '乐高积木',
+        price: '¥30.00',
         discountPrice: '¥2.40'
       },
       {
-        name: '有机青菜',
-        price: '¥3.00',
+        name: '乐高积木',
+        price: '¥30.00',
         discountPrice: '¥2.40'
       },
       {
-        name: '有机青菜',
-        price: '¥3.00',
+        name: '乐高积木',
+        price: '¥30.00',
         discountPrice: '¥2.40'
       }],
       dialogVisible: false

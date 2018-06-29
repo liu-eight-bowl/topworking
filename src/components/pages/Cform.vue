@@ -2,8 +2,7 @@
   div.form
     el-card.box-card(shadow="hover")
       div.clearfix(slot="header")
-        span
-          i.el-icon-circle-plus 添加产品
+        span 添加产品
       el-form(
         :model="ruleForm",
         :rules="rules",
@@ -11,7 +10,7 @@
         label-width="100px",
         class="product-add")
         el-form-item(label="商品名称", prop="name")
-          el-input(v-model="ruleForm.name", autofocus, size="small", clearable)
+          el-input(v-model="ruleForm.name", size="small", clearable)
         el-form-item(label="商品单价", prop="price")
           el-input(v-model.number="ruleForm.price", size="small", clearable)
         el-form-item(label="商品优惠价", prop="discountPrice")
