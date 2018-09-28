@@ -33,6 +33,7 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
+  console.log(userData, isTimeOver)
 
   // // 方案2通过状态管理-存储用户名(有bug-需要结合localstorage来配合，不然刷新后状态被重置)
   // if (!store.state.name && to.path !== '/login') {
