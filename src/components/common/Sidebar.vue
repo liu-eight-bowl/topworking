@@ -1,6 +1,6 @@
 <template lang="pug">
   aside(:class="{'sidebar': true, 'folding': isActived}")
-    div.logo TOP
+    div.logo VUI
       span(v-if="!isActived") -Working
 
     el-menu(

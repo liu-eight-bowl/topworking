@@ -5,7 +5,7 @@
         :class="{'btn-toggle': true, 'active': isActived}",
         @click="taggleMenu")
         i.icon-toggle
-      h2.title 淘璞后台管理系统UI  --- {{ city }}
+      h2.title 后台管理系统UI
       div.header-user
         div.rank
           el-tooltip.item(
