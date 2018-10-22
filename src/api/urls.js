@@ -1,5 +1,5 @@
 // 接口域名
-const HOST = 'https://thinkin.cushmanwakefield.com.cn'
+const HOST = 'http://wwww.css90.com'
 // 接口对象
 const urls = {
   base: HOST,
