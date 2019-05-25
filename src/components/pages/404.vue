@@ -30,7 +30,7 @@ export default {
 <style scoped lang=scss>
 .notfound {
   text-align: center;
-  width: 470px;
+  width: 500px;
   height: 350px;
   position: absolute;
   top: 15%;
