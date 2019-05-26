@@ -40,7 +40,7 @@ router.beforeEach((to, from, next) => {
   //   next('/login')
   // } else {
   //   next()
-  // }
+  // } 
 })
 /* eslint-disable no-new */
 new Vue({
