@@ -74,7 +74,8 @@ export default {
     options: {
       deep: true,
       handler (newV) {
-        this.setOptions(newV)
+        const options = this.getOptions(newV)
+        this.setOptions(options)
       }
     }
   },
