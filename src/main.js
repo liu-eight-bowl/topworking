@@ -28,19 +28,19 @@ router.beforeEach((to, from, next) => {
   if (!window.localStorage) {
     next()
   }
+  /**
+   * 1 如果没有登陆，并且不在登录页的时候则跳转到登陆页
+   * 2 如果是登陆情况下，页面在登录页的时候，则跳转到首页
+   * 3 如果是登陆了，不在登陆页，则直接进入页面
+   */
   if ((!userDataString && to.path !== '/login')) {
     next('/login')
+  } else if (userDataString && to.path === '/login') {
+    next('/')
   } else {
     next()
   }
   console.log(userData, isTimeOver)
-
-  // // 方案2通过状态管理-存储用户名(有bug-需要结合localstorage来配合，不然刷新后状态被重置)
-  // if (!store.state.name && to.path !== '/login') {
-  //   next('/login')
-  // } else {
-  //   next()
-  // }
 })
 /* eslint-disable no-new */
 new Vue({
