@@ -22,7 +22,8 @@
             clearable)
         div.btn-login
           el-button(type="primary", @click="login") 登录
-
+    //- div.login-bg-img）
+    //- img(src="../../assets/login-box-bg.jpg"）
     div.login-bg
      img(src="../../assets/body_bg.png")
 </template>
@@ -100,17 +101,20 @@ export default {
       }
     }
   }
-  .login-bg {
+  .login-bg, .login-bg-img {
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    z-index: 10;
+    z-index: 9;
     img {
       width: 100%;
       height: 100%;
     }
+  }
+  .login-bg-img {
+    z-index: 10;
   }
 }
 </style>

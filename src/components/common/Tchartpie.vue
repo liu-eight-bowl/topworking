@@ -1,7 +1,5 @@
 <template>
-<div>
   <div ref="myChart" :style="styles"></div>
-</div>
 </template>
 
 <script>
@@ -47,7 +45,7 @@ export default {
           bottom: 30
         },
         series: {
-          name: '占比',
+          name: this.options.seriesItemName || '',
           type: 'pie',
           avoidLabelOverlap: false,
           label: {
@@ -80,8 +78,10 @@ export default {
     }
   },
   mounted () {
-    this.initOption()
-    this.autoSize && window.addEventListener('resize', this.resizeDebounce, false)
+    this.$nextTick(() => {
+      this.initOption()
+      this.autoSize && window.addEventListener('resize', this.resizeDebounce, false)
+    })
   },
   methods: {
     initOption () {
@@ -95,7 +95,7 @@ export default {
     resizeDebounce () {
       clearTimeout(this.timer)
       this.timer = setTimeout(() => {
-        this.myChart && this.myChart.resize()
+        this.resize()
       }, 100)
     },
     /**
@@ -105,7 +105,7 @@ export default {
      * seriesData<Array>  X轴维度对应的柱子数据
      */
     getOptions ({text, subtext, radius, seriesData}) {
-      return {
+      const options = {
         title: {
           text: text,
           subtext: subtext,
@@ -116,13 +116,23 @@ export default {
         series: [{
           ...this.optionsConfig.series,
           radius: radius,
+          center: this.options.seriesCenter || ['50%', '50%'],
           data: seriesData
         }]
       }
+      options.legend.right = this.options.right || 0
+      if (seriesData.length > 8) {
+        options.legend.type = 'scroll'
+      }
+      return options
     },
     setOptions (options) {
       this.clear()
       this.myChart && this.myChart.setOption(options)
+      this.resize()
+    },
+    resize () {
+      this.myChart && this.myChart.resize()
     },
     clear () {
       this.myChart && this.myChart.clear()

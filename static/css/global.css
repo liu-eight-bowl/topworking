@@ -33,7 +33,7 @@ img {
     max-width: 100%;
 }
 html,
-body, 
+body,
 #app {
     height: 100%;
 }
@@ -119,6 +119,9 @@ body,
     right: 0;
     overflow: auto;
     transition: all .2s ease-in;
+}
+.main-content.folding {
+  left: 80px;
 }
 .container {
     margin: 20px 20px 50px;

@@ -35,7 +35,12 @@ export default {
           iconName: 'el-icon-document'
         },
         {
-          title: '表格数据',
+          title: '产品树',
+          index: 'list',
+          iconName: 'el-icon-news'
+        },
+        {
+          title: '表格数据-动态水印',
           index: 'table',
           iconName: 'el-icon-tickets'
         },
@@ -45,19 +50,19 @@ export default {
           iconName: 'el-icon-date'
         },
         {
-          title: '图表展示',
+          title: '图表组件',
           index: 'chart',
+          iconName: 'el-icon-picture-outline'
+        },
+        {
+          title: '微信手机模型',
+          index: 'CwechatMobile',
           iconName: 'el-icon-picture-outline'
         },
         {
           title: '选项卡',
           index: 'tabs',
           iconName: 'el-icon-setting'
-        },
-        {
-          title: '列表信息',
-          index: 'list',
-          iconName: 'el-icon-news'
         }
       ],
       isActived: false

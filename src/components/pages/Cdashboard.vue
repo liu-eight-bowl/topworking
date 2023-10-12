@@ -18,11 +18,11 @@
             div.clearfix(slot="header")
               span
                 i.el-icon-date 今年订单状况
-            tcharts(
-              :styles="styles"
-              :color="color"
-              :xAxisData="xAxisData"
-              :series="series")
+            //- tcharts(
+            //-   :styles="styles"
+            //-   :color="color"
+            //-   :xAxisData="xAxisData"
+            //-   :series="series")
 
       el-col(:span="12")
         div.grid-content.bg-purple

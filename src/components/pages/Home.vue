@@ -1,3 +1,11 @@
+<!--
+ * @Author: liubing 943485115@qq.com
+ * @Date: 2022-09-24 16:37:23
+ * @LastEditors: liubing 943485115@qq.com
+ * @LastEditTime: 2023-08-25 10:29:34
+ * @FilePath: /topworking/src/components/pages/Home.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template lang="pug">
   div.main
     Theader
@@ -20,6 +28,15 @@ export default {
   data () {
     return {
       isActived: false
+    }
+  },
+  computed: {
+    watermark () {
+      return {
+        text: '11111',
+        time: Date.now(),
+        isInterval: false
+      }
     }
   },
   created () {

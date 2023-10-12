@@ -12,7 +12,7 @@
         :closable="item.path !== '/dashboard'")
         router-link.tags-li-title( :to="item.path") {{ item.name }}
     div.close-tags(v-if="isShowDashboard")
-      el-dropdown(@command="handleBreadTags")
+      el-dropdown(@command="handleBreadTags", trigger="click")
         el-button(type="primary",size="mini") 更多选项
           i.el-icon-arrow-down.el-icon--right
         el-dropdown-menu(slot="dropdown" size="mini")
